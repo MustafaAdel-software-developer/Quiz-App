@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="quiz" style="display: none">Quiz</div>
+
+    <div class="setting">
+      <h2>Quiz App</h2>
+      <label for="category">Select Category</label>
+      <select name="" id="category">
+        <option value="9">General</option>
+        <option value="27">Animals</option>
+        <option value="23">History</option>
+        <option value="21">Sports</option>
+      </select>
+
+      <div>
+        <label for="difficulty">Difficulty</label>
+
+        <label for="easy">
+          <input type="radio" id="easy" />
+          Easy
+        </label>
+
+        <label for="medium">
+          <input type="radio" id="medium" />
+          Medium
+        </label>
+
+        <label for="hard">
+          <input type="radio" id="hard" />
+          Hard
+        </label>
+      </div>
+
+      <div>
+        <label for="nQuestions">Number of Questions</label>
+        <input type="number" id="nQuestions" />
+      </div>
+
+      <button id="startBtn" class="submit">Start Quiz</button>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
