@@ -20,8 +20,8 @@ class Settings {
       const difficulty = this.getDifficulty();
 
       const url = `https://opentdb.com/api.php?amount=${amount}&category=${categoryId}&difficulty=${difficulty}`;
-      let result = await this.fetchData(url);
-      console.log(result);
+      let { results } = await this.fetchData(url);
+      console.log(results);
       this.toggleElement();
     } catch (err) {
       console.log(err);
@@ -35,16 +35,18 @@ class Settings {
 
   getAmount = () => {
     const amount = this.nQuestionDom.value;
-
-    amount > 0 && amount < 20 ? amount : alert("please enter questions");
+    if (amount > 0 && amount < 20) {
+      return amount;
+    } else {
+      alert("please enter valid amount questions");
+    }
   };
 
-  fetchData = (url) => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        return data.result;
-      });
+  fetchData = async (url) => {
+    const response = await fetch(url);
+    const result = await response.json();
+    console.log(result);
+    return result;
   };
 
   getDifficulty = () => {
@@ -56,5 +58,4 @@ class Settings {
     }
   };
 }
-
 export default Settings;
