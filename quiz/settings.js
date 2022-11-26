@@ -35,11 +35,8 @@ class Settings {
 
   getAmount = () => {
     const amount = this.nQuestionDom.value;
-    if (amount > 0 && amount < 20) {
-      return amount;
-    } else {
-      alert("please enter questions");
-    }
+
+    amount > 0 && amount < 20 ? amount : alert("please enter questions");
   };
 
   fetchData = (url) => {
