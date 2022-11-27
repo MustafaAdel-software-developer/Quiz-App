@@ -1,3 +1,5 @@
+import Question from "./question";
+import Quiz from "./quiz.js";
 class Settings {
   constructor() {
     this.settingDom = document.querySelector(".setting");
@@ -10,7 +12,7 @@ class Settings {
       document.querySelector("#medium"),
       document.querySelector("#hard"),
     ];
-
+    this.quiz = {};
     this.startBtn.addEventListener("click", this.startQuizApp);
   }
   startQuizApp = async () => {
@@ -22,6 +24,8 @@ class Settings {
       const url = `https://opentdb.com/api.php?amount=${amount}&category=${categoryId}&difficulty=${difficulty}`;
       let { results } = await this.fetchData(url);
       console.log(results);
+
+      this.quiz = new Quiz(this.quizDom, amount, results);
       this.toggleElement();
     } catch (err) {
       console.log(err);
